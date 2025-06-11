@@ -1,6 +1,11 @@
+info:
+    contact: meMySelf@and.i.de
+    operatorName: Myself And I
+    operatorAdminName: Me and Myself
+
 artemis:
     version-control:
-        url: "http://localhost:8080"
+        url: "http://artemis-main-instance:8080"
         default-branch: main
         build-agent-git-username: buildjob_user
         build-agent-git-password: buildjob_password
@@ -19,34 +24,33 @@ artemis:
             expiry-minutes: 5                               # Time after a hanging container will automatically be removed
             cleanup-schedule-minutes: 60                    # Schedule for container cleanup
         build-agent:
-            short-name: "artemis-build-agent-X"             # Short name of the build agent. This should be unique for each build agent. Only lowercase letters, numbers and hyphens are allowed.
-            display-name: "Artemis Build Agent X"           # This value is optional. If omitted, the short name will be used as display name. Display name of the build agent. This is shown in the Artemis UI.
+            short-name: "artemis-build-agent-1"             # Short name of the build agent. This should be unique for each build agent. Only lowercase letters, numbers and hyphens are allowed.
+            display-name: "Artemis Build Agent 1"           # The Display name in the Artemis UI.
         build-timeout-seconds:
             max: 240                                        # (Optional, default 240) Maximum time in seconds a build job is allowed to run. If a build job exceeds this time, it will be cancelled.
 
     git:
-        name:  "Artemis LocalVC"        # resolves ${artemis.git.name}
-        email: "git@localhost"          # resolves ${artemis.git.email}
-        password: "someGitPassword"     # resolves ${artemis.git.password}
+        name:  "Artemis LocalVC"
+        email: "git@localhost"
+        password: "someGitPassword"
 
 jhipster:
     security:
         authentication:
             jwt:
                 base64-secret: "zhK6YPbfcOsNVw5QYtRQ1LCcnot+E/+ewbQgzV8gvpUwxwj/zeeDaxISqVSTWjG7bnWIQaefuaU+9NWz9ALG5w=="
-
 eureka:
     client:
         enabled: true
-        service-url:
+        serviceUrl:
             defaultZone: http://admin:admin@registry:8761/eureka/
 
-instance:
-    # prefer-ip-address: true
-    # ip-address: {{ artemis_ip_address }}
-    prefer-ip-address: false
-    appname: Artemis
-    instanceId: Artemis:buildagent1
+    instance:
+        # prefer-ip-address: true
+        # ip-address: {{ artemis_ip_address }}
+        prefer-ip-address: false
+        appname: Artemis Build Agent 1
+        instanceId: Artemis:build1
 
 spring:
     datasource:

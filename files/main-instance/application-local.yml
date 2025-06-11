@@ -18,11 +18,11 @@ artemis:
         build-agent-git-username: buildjob_user
         build-agent-git-password: buildjob_password
 
-
     git:
         name:  "Artemis LocalVC"        # resolves ${artemis.git.name}
         email: "git@localhost"          # resolves ${artemis.git.email}
         password: "someGitPassword"     # resolves ${artemis.git.password}
+
 jhipster:
     security:
         authentication:
@@ -32,15 +32,15 @@ jhipster:
 eureka:
     client:
         enabled: true
-        service-url:
+        serviceUrl:
             defaultZone: http://admin:admin@registry:8761/eureka/
 
-instance:
-    # prefer-ip-address: true
-    # ip-address: {{ artemis_ip_address }}
-    prefer-ip-address: false
-    appname: Artemis
-    instanceId: Artemis:1
+    instance:
+        # prefer-ip-address: true
+        # ip-address: {{ artemis_ip_address }}
+        prefer-ip-address: false
+        appname: Artemis Instance 1
+        instanceId: Artemis:core1
 
 spring:
     datasource:

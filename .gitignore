@@ -1,2 +1,3 @@
 *.war
 postgresql-data
+.env
