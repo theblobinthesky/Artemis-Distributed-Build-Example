@@ -39,25 +39,31 @@ jhipster:
         authentication:
             jwt:
                 base64-secret: "zhK6YPbfcOsNVw5QYtRQ1LCcnot+E/+ewbQgzV8gvpUwxwj/zeeDaxISqVSTWjG7bnWIQaefuaU+9NWz9ALG5w=="
+
 eureka:
     client:
         enabled: true
-        serviceUrl:
+        service-url:
             defaultZone: http://admin:admin@registry:8761/eureka/
 
     instance:
         # prefer-ip-address: true
         # ip-address: {{ artemis_ip_address }}
-        prefer-ip-address: false
-        appname: Artemis Build Agent 1
+        prefer-ip-address: true
+        appname: artemis-build-agent-1
         instanceId: Artemis:build1
 
-spring:
-    datasource:
-        type: com.zaxxer.hikari.HikariDataSource
-        url: jdbc:postgresql://postgres:5432/artemis
-        username: postgres
-        password: postgres
-        hikari:
-            poolName: Hikari
-            auto-commit: false
+hazelcast:
+#    cluster-name: artemis-cluster
+    discovery:
+        enabled: true     # <─ this is the important line
+    network:
+        port:
+            auto-increment: true
+        join:
+            multicast:
+                enabled: false
+            tcp-ip:
+                enabled: false
+            eureka:
+                enabled: true

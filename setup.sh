@@ -18,4 +18,4 @@ echo -e "${COLOR_INFO}⏳ Starting dependencies and all instances using docker-c
 sudo docker-compose down -v
 sudo docker-compose rm
 sudo rm -rf postgresql-data
-sudo docker-compose up # --detach
+# sudo docker-compose up # --detach

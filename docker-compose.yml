@@ -12,12 +12,14 @@ services:
       - POSTGRES_PASSWORD=postgres
       - POSTGRES_DB=artemis
 
-  registry: # -for-distributed-setup
+  registry:
     image: jhipster/jhipster-registry:latest
     ports:
       - '8761:8761'
     environment:
       SPRING_PROFILES_ACTIVE: prod # TODO: Is this necessary
+      EUREKA_INSTANCE_HOSTNAME: registry # advertise as “registry”, not localhost
+      EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://admin:admin@registry:8761/eureka/
       JHIPSTER_REGISTRY_PASSWORD: admin
       JHIPSTER_SECURITY_AUTHENTICATION_JWT_BASE64_SECRET: "zhK6YPbfcOsNVw5QYtRQ1LCcnot+E/+ewbQgzV8gvpUwxwj/zeeDaxISqVSTWjG7bnWIQaefuaU+9NWz9ALG5w=="
 

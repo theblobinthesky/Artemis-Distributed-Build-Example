@@ -32,14 +32,14 @@ jhipster:
 eureka:
     client:
         enabled: true
-        serviceUrl:
+        service-url:
             defaultZone: http://admin:admin@registry:8761/eureka/
 
     instance:
         # prefer-ip-address: true
         # ip-address: {{ artemis_ip_address }}
-        prefer-ip-address: false
-        appname: Artemis Instance 1
+        prefer-ip-address: true
+        appname: artemis-instance-1
         instanceId: Artemis:core1
 
 spring:
@@ -51,3 +51,18 @@ spring:
         hikari:
             poolName: Hikari
             auto-commit: false
+
+hazelcast:
+#    cluster-name: artemis-cluster
+    discovery:
+        enabled: true     # <─ this is the important line
+    network:
+        port:
+            auto-increment: true
+        join:
+            multicast:
+                enabled: false
+            tcp-ip:
+                enabled: false
+            eureka:
+                enabled: true
