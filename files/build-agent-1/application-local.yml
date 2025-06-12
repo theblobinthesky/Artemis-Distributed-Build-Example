@@ -47,14 +47,17 @@ eureka:
             defaultZone: http://admin:admin@registry:8761/eureka/
 
     instance:
-        # prefer-ip-address: true
-        # ip-address: {{ artemis_ip_address }}
         prefer-ip-address: true
+        ip-address: 172.30.0.11
+        # prefer-ip-address: true
         appname: artemis-build-agent-1
         instanceId: Artemis:build1
 
+spring:
+    hazelcast:
+        interface: 172.30.0.11
+
 hazelcast:
-#    cluster-name: artemis-cluster
     discovery:
         enabled: true     # <─ this is the important line
     network:
