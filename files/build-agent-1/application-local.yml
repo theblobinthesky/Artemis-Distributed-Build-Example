@@ -9,12 +9,6 @@ logging:
     com.netflix.discovery: TRACE  # Eureka client internals
 
 artemis:
-    version-control:
-        url: "http://artemis-main-instance:8080"
-        default-branch: main
-        build-agent-git-username: buildjob_user
-        build-agent-git-password: buildjob_password
-
     continuous-integration:
         docker-connection-uri: unix:///var/run/docker.sock
         specify-concurrent-builds: true                     # Set to false, if the number of concurrent build jobs should be chosen automatically based on system resources
@@ -62,8 +56,6 @@ spring:
         interface: 172.30.0.11
 
 hazelcast:
-    discovery:
-        enabled: true     # <─ this is the important line
     network:
         join:
             eureka:

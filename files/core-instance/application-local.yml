@@ -16,7 +16,7 @@ artemis:
             password: artemis_admin
 
     version-control:
-        url: "http://localhost:8080"
+        url: "http://artemis-core-instance:8080"
         default-branch: main
         user: artemis_vc_user
         password: artemis_vc_password
@@ -42,7 +42,7 @@ eureka:
 
     instance:
         prefer-ip-address: true
-        ip-address: 172.30.0.10
+        ip-address: 172.30.0.10 # Callback ip address to contact the core instance after eureka discovery.
         appname: artemis
         instanceId: Artemis:core1
 
@@ -59,8 +59,6 @@ spring:
         interface: 172.30.0.10
 
 hazelcast:
-    discovery:
-        enabled: true     # <─ this is the important line
     network:
         join:
             eureka:
