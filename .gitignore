@@ -1,3 +1,4 @@
 *.war
 postgresql-data
 .env
+artemis-ansible-collection

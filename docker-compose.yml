@@ -62,11 +62,30 @@ services:
       - ./files/main-instance/application-local.yml:/opt/artemis/config/application-local.yml:ro
     environment:
       SPRING_CONFIG_ADDITIONAL_LOCATION: "file:/opt/artemis/config/application-local.yml"
-      SPRING_PROFILES_ACTIVE: "prod,core,localvc,localci,scheduling,docker,local"
+      SPRING_PROFILES_ACTIVE: "prod,core,localvc,localci,docker,local"
       SERVER_PORT: 8080
     networks:
       hazelcast-net:
         ipv4_address: 172.30.0.10
+
+  artemis-main-instance-2:
+    image: ghcr.io/ls1intum/artemis:8.1.3
+    ports:
+      # The REST Apis, Website etc.
+      - '8082:8080'
+    depends_on:
+      - postgres
+      - registry
+      - message-broker-for-websockets
+    volumes:
+      - ./files/main-instance-2/application-local.yml:/opt/artemis/config/application-local.yml:ro
+    environment:
+      SPRING_CONFIG_ADDITIONAL_LOCATION: "file:/opt/artemis/config/application-local.yml"
+      SPRING_PROFILES_ACTIVE: "prod,core,localvc,localci,docker,local,scheduling"
+      SERVER_PORT: 8080
+    networks:
+      hazelcast-net:
+        ipv4_address: 172.30.0.12
 
   artemis-build-agent-1:
     image: ghcr.io/ls1intum/artemis:8.1.3

@@ -3,6 +3,11 @@ info:
     operatorName: Myself And I
     operatorAdminName: Me and Myself
 
+logging:
+  level:
+    com.hazelcast: TRACE      # specifically see all Hazelcast internals
+    com.netflix.discovery: TRACE  # Eureka client internals
+
 artemis:
     version-control:
         url: "http://artemis-main-instance:8080"
@@ -49,8 +54,7 @@ eureka:
     instance:
         prefer-ip-address: true
         ip-address: 172.30.0.11
-        # prefer-ip-address: true
-        appname: artemis-build-agent-1
+        appname: artemis
         instanceId: Artemis:build1
 
 spring:
@@ -61,12 +65,10 @@ hazelcast:
     discovery:
         enabled: true     # <─ this is the important line
     network:
-        port:
-            auto-increment: true
         join:
+            eureka:
+                enabled: true
             multicast:
                 enabled: false
             tcp-ip:
-                enabled: false
-            eureka:
-                enabled: true
+                enabled: false   # ← avoid empty fallback list

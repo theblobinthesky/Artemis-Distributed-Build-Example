@@ -42,9 +42,9 @@ eureka:
 
     instance:
         prefer-ip-address: true
-        ip-address: 172.30.0.10
+        ip-address: 172.30.0.12
         appname: artemis
-        instanceId: Artemis:core1
+        instanceId: Artemis:core2
 
 spring:
     datasource:
@@ -56,7 +56,7 @@ spring:
             poolName: Hikari
             auto-commit: false
     hazelcast:
-        interface: 172.30.0.10
+        interface: 172.30.0.12
 
 hazelcast:
     discovery:
