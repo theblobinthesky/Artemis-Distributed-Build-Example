@@ -18,11 +18,9 @@ Address = 10.99.0.1/24
 PrivateKey = <contents of /etc/wireguard/privatekey on VM-1>
 ListenPort = 51820
 
-PostUp   = sysctl -w net.ipv4.ip_forward=1; \
-           iptables -A FORWARD -i wg0 -j ACCEPT; \
-           iptables -A FORWARD -o wg0 -j ACCEPT
-PostDown = iptables -D FORWARD -i wg0 -j ACCEPT; \
-           iptables -D FORWARD -o wg0 -j ACCEPT
+# Enable and Disable permissive firewall rules.
+PostUp   = sysctl -w net.ipv4.ip_forward=1; iptables -A FORWARD -i wg0 -j ACCEPT; iptables -A FORWARD -o wg0 -j ACCEPT
+PostDown = iptables -D FORWARD -i wg0 -j ACCEPT; iptables -D FORWARD -o wg0 -j ACCEPT
 
 [Peer]
 PublicKey         = <contents of /etc/wireguard/publickey on VM-2>
@@ -38,6 +36,7 @@ Address = 10.99.0.2/24
 PrivateKey = <contents of /etc/wireguard/privatekey on VM-2>
 ListenPort = 51820
 
+# Enable and Disable permissive firewall rules.
 PostUp   = sysctl -w net.ipv4.ip_forward=1; iptables -A FORWARD -i wg0 -j ACCEPT; iptables -A FORWARD -o wg0 -j ACCEPT
 PostDown = iptables -D FORWARD -i wg0 -j ACCEPT; iptables -D FORWARD -o wg0 -j ACCEPT
 
@@ -63,7 +62,7 @@ ping -c3 10.99.0.2 # in VM-1: from VM-1 → to VM-2
 
 ### Run this once on the core instance
 ```
-docker network rm hazelcast-net 2>/dev/null || true
+docker network rm hazelcast-net
 docker network create \
   --driver bridge \
   --subnet 172.30.0.0/24 \

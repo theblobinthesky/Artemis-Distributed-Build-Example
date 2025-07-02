@@ -49,7 +49,7 @@ eureka:
 spring:
     datasource:
         type: com.zaxxer.hikari.HikariDataSource
-        url: jdbc:postgresql://postgres:5432/artemis
+        url: jdbc:postgresql://172.30.0.7:5432/artemis
         username: postgres
         password: postgres
         hikari:
