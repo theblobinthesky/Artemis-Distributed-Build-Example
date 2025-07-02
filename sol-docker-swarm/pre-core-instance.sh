@@ -1,6 +1,7 @@
 IP=$(ip -4 addr show enp0s3 | grep -oP '(?<=inet\s)\d+(\.\d+){3}')
 echo "IP: $IP"
 
+docker swarm leave --force
 docker swarm init --advertise-addr $IP
 docker network create \
   --driver overlay \
