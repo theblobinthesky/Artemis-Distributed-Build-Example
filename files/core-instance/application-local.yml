@@ -3,10 +3,10 @@ info:
     operatorName: Myself And I
     operatorAdminName: Me and Myself
 
-logging:
-  level:
-    com.hazelcast: TRACE      # specifically see all Hazelcast internals
-    com.netflix.discovery: TRACE  # Eureka client internals
+# logging:
+#   level:
+#     com.hazelcast: TRACE      # specifically see all Hazelcast internals
+#     com.netflix.discovery: TRACE  # Eureka client internals
 
 artemis:
     user-management:
