@@ -72,10 +72,6 @@ services:
     ports:
       # The REST Apis, Website etc.
       - '8081:8080'
-    depends_on:
-      - postgres
-      - registry
-      - message-broker-for-websockets
     volumes:
       - ./files/build-agent-1/application-local.yml:/opt/artemis/config/application-local.yml:ro
       - /var/run/docker.sock:/var/run/docker.sock # Host docker is available for the build agent.
