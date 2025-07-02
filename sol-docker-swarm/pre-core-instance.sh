@@ -8,4 +8,4 @@ docker network create \
   --attachable \
   --subnet 172.30.0.0/24 \
   --gateway 172.30.0.1 \
-  my_overlay
+  overlay_net
