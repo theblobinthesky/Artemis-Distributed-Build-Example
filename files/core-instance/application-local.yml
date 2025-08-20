@@ -60,7 +60,7 @@ spring:
 
 hazelcast:
     network:
-        # public-address: 192.168.2.116:5701
+        public-address: 192.168.2.116:5701
         join:
             eureka:
                 enabled: true
