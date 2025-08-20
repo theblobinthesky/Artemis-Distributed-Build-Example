@@ -60,8 +60,8 @@ hazelcast:
         public-address: 192.168.2.203:5701
         join:
             eureka:
-                enabled: false
+                enabled: true
             multicast:
                 enabled: false
             tcp-ip:
-                enabled: true
+                enabled: false
