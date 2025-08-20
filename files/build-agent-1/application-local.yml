@@ -57,7 +57,7 @@ spring:
 
 hazelcast:
     network:
-        # public-address: 192.168.2.203:5701
+        public-address: 192.168.2.203:5701 # ensures reconnects work after a connection was dropped temporarily
         join:
             eureka:
                 enabled: true
