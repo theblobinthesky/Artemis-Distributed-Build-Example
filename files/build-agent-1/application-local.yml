@@ -53,7 +53,7 @@ eureka:
 
 spring:
     hazelcast:
-        interface: 192.168.2.203
+        interface: 0.0.0.0
 
 hazelcast:
     network:
