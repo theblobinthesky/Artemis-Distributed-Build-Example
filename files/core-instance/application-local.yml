@@ -55,15 +55,15 @@ spring:
         hikari:
             poolName: Hikari
             auto-commit: false
-    # hazelcast:
-    #     interface: 0.0.0.0
+    hazelcast:
+        interface: 172.30.0.10
 
 hazelcast:
     network:
-        interfaces:
-            enabled: true
-            interfaces:
-                - 172.30.0.10
+        # interfaces:
+        #     enabled: true
+        #     interfaces:
+        #         - 172.30.0.10
         public-address: 192.168.2.116:5701
         join:
             eureka:

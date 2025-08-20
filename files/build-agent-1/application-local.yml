@@ -51,16 +51,16 @@ eureka:
         appname: artemis
         instanceId: Artemis:build1
 
-# spring:
-#     hazelcast:
-#         interface: 0.0.0.0
+spring:
+    hazelcast:
+        interface: 172.30.0.11
 
 hazelcast:
     network:
-        interfaces:
-            enabled: true
-            interfaces:
-                - 172.30.0.11
+        # interfaces:
+        #     enabled: true
+        #     interfaces:
+                # - 172.30.0.11
         public-address: 192.168.2.203:5701
         join:
             eureka:
