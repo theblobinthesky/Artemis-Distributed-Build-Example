@@ -51,9 +51,9 @@ eureka:
         appname: artemis
         instanceId: Artemis:build1
 
-# spring:
-#     hazelcast:
-#         interface: 172.30.0.11
+spring:
+    hazelcast:
+        interface: 192.168.2.203
 
 hazelcast:
     network:

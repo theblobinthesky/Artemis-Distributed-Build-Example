@@ -55,8 +55,8 @@ spring:
         hikari:
             poolName: Hikari
             auto-commit: false
-    # hazelcast:
-    #     interface: 172.30.0.10
+    hazelcast:
+        interface: 192.168.2.116
 
 hazelcast:
     network:
