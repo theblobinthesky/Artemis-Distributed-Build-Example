@@ -63,8 +63,8 @@ hazelcast:
         public-address: 192.168.2.116:5701
         join:
             eureka:
-                enabled: true
+                enabled: false
             multicast:
                 enabled: false
             tcp-ip:
-                enabled: false   # ← avoid empty fallback list
+                enabled: true
