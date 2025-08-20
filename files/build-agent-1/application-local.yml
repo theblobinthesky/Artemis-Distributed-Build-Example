@@ -47,13 +47,13 @@ eureka:
 
     instance:
         prefer-ip-address: true
-        ip-address: 172.30.0.11
+        ip-address: 192.168.2.203
         appname: artemis
         instanceId: Artemis:build1
 
-spring:
-    hazelcast:
-        interface: 172.30.0.11
+# spring:
+#     hazelcast:
+#         interface: 172.30.0.11
 
 hazelcast:
     network:

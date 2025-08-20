@@ -42,7 +42,7 @@ eureka:
 
     instance:
         prefer-ip-address: true
-        ip-address: 172.30.0.10 # Callback ip address to contact the core instance after eureka discovery.
+        ip-address: 192.168.2.116
         appname: artemis
         instanceId: Artemis:core1
 
@@ -55,8 +55,8 @@ spring:
         hikari:
             poolName: Hikari
             auto-commit: false
-    hazelcast:
-        interface: 172.30.0.10
+    # hazelcast:
+    #     interface: 172.30.0.10
 
 hazelcast:
     network:
