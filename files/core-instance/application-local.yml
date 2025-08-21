@@ -58,13 +58,13 @@ spring:
     hazelcast:
         interface: 172.30.0.10
 
-hazelcast:
-    network:
-        public-address: 192.168.2.116:5701 # ensures reconnects work after a connection was dropped temporarily
-        join:
-            eureka:
-                enabled: true
-            multicast:
-                enabled: false
-            tcp-ip:
-                enabled: false
+# hazelcast:
+#     network:
+#         public-address: 192.168.2.116:5701 # ensures reconnects work after a connection was dropped temporarily
+#         join:
+#             eureka:
+#                 enabled: true
+#             multicast:
+#                 enabled: false
+#             tcp-ip:
+#                 enabled: false
